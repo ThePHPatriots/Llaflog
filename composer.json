@@ -1,0 +1,29 @@
+{
+    "description": "A Very Simple Blog App.",
+    "keywords": ["blogging", "weblog", "albanian"],
+    "license": "MIT",
+    "authors": [
+        {
+            "homepage": "http://poentalabs.com"
+        }
+    ],
+    "require": {
+        "ircmaxell/password-compat": "dev-master",
+        "nesbot/carbon": "^1.18",
+        "j4mie/paris": "^1.5",
+        "twig/twig": "~1.0"
+    },
+    "require-dev": {
+        "filp/whoops": "^1.1"
+    },
+    "autoload": {
+        "classmap": [
+            "app/models",
+            "app/core"
+        ],
+        "files": [
+            "app/core/Helpers.php"
+        ]
+    }
+}
+
