@@ -11,7 +11,8 @@
         "ircmaxell/password-compat": "dev-master",
         "nesbot/carbon": "^1.18",
         "j4mie/paris": "^1.5",
-        "twig/twig": "~1.0"
+        "twig/twig": "~1.0",
+        "phpmailer/phpmailer": "~5.2"
     },
     "require-dev": {
         "filp/whoops": "^1.1"

@@ -22,6 +22,7 @@
                         <li><a href="{{ HTTP_ROOT ~ 'auth/register'}}">Register</a></li>
                         {% else %}
                         <li><a href="{{ HTTP_ROOT ~ 'users/account'}}"><span class="glyphicon glyphicon-cog" aria-hidden="true"> Settings</span></a></li>
+                        <li><a href="{{ HTTP_ROOT ~ 'users/message'}}"><span class="glyphicon glyphicon-inbox" aria-hidden="true"> Send Message</span></a></li>
                         <li class="divider"></li>
                         <li><a href="{{ HTTP_ROOT ~ 'auth/logout' }}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log Out</a></li>
                         {% endif %}

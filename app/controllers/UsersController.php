@@ -63,4 +63,49 @@ class UsersController extends Controller
             }
         }
     }
+
+    public function message()
+    {
+        $this->view('users/message', null);        
+    }
+
+    public function send()
+    {
+        if (Input::get('submit')) {
+            $name  = Input::get('name');
+            $email = Input::get('email');
+            $message = Input::get('message');
+
+            $user = User::where('email', $email)->findOne();
+            
+            // foreach ($fields as $field => $data) {
+            //     if (empty($data)) {
+            //         $errors[] = 'The ' . $field . ' field is required';
+            //     }
+            // }
+          
+            if (empty($errors)) {
+            
+                $m = new PHPMailer;
+                $m->isSMTP();
+                $m->SMTPAuth = true;
+                $m->Host = 'smtp.gmail.com';
+                $m->Username = 'email@example.com';
+                $m->Password = 'password';
+                $m->SMTPSecure = 'ssl';
+                $m->Port = 465;
+                $m->isHTML();
+                $m->Subject = 'Contact form submitted';
+                $m->Body = 'From: ' . $user['name'] . ' (' . $user['email'] . ')<p>' . $user['message'] . '</p>';
+                $m->FromName = 'Contact';
+                $m->AddAddress('email@example.com', 'yourname');
+                if ($m->send()) {
+                    header('Location: ' . HTTP_ROOT);
+                  die();
+                } else {
+                  $errors[] = 'Sorry, could not send email.';
+                }
+            }
+        }
+    }
 }
